@@ -2,12 +2,10 @@
     <div class="col-md-12">
         <!-- membuat tabel menjadi berwarna biru -->
         <div class="panel panel-primary">
-            <div class="panel-heading">
-                 Data Kas Masuk
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <div class="panel-heading"> Data Kas Masuk</div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 
                         <thead>
                             <tr>
@@ -26,8 +24,7 @@
                             <?php
                                 $no = 1;
                                 $sql = $koneksi->query("select * from kas");
-                                while ($data = $sql->fetch_assoc())
-                                {      
+                                while ($data = $sql->fetch_assoc()) {      
                             ?>
 
                             <!-- proses pemanggilan data yang ada didatabase -->
@@ -40,16 +37,17 @@
                                 <td align="right"><?php echo number_format($data['keluar']).",-"; ?></td>
                                 <td><?php echo $data['jenis']; ?></td>
                             </tr>
+
                             <?php
-                                    //proses menjumlahkan uang kas masuk 
+                                    //perhitungan uang kas masuk 
                                     $total = $total+$data['jumlah'];
 
-                                    //proses menjumlahkan uang kas keluar 
+                                    //perhitungan uang kas keluar 
                                     $total_keluar = $total_keluar+$data['keluar'];
 
+                                    // perhitungan saldo akhir 
                                     $saldo_akhir = $total-$total_keluar;
                                 }
-
                             ?>
                         </tbody>
 

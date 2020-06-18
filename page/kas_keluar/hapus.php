@@ -4,15 +4,12 @@
 	$sql = $koneksi->query("delete from kas where kode = '$id'");
 
 	// pesan informasi
-	if($sql)
-    {
+	if($sql) {
         ?>
-
             <script type="text/javascript">
                 alert("Data Berhasil Dihapus");
                 window.location.href="?page=keluar";
             </script>
         <?php
     }
-
 ?>
